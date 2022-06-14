@@ -1,0 +1,25 @@
+<h2>Plants products overview:</h2>
+
+<table>
+    <tr>
+        <th>PlantNo</th>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Certificate</th>
+          <th> </th>
+    </tr>
+        <tr *ngFor="let plant of plants; index as i">
+            <td>{{plant.PlantNo}} </td>
+            <td><input [(ngModel)]="plant.Name"></td>
+            <td><input [(ngModel)]="plant.Price"></td>
+            <td> <input [(ngModel)]="plant.Certificate" > </td>
+            <td> <button (click)="updatePlant(i)"> Edit Plant </button> 
+             <button (click)="deletePlant(i)"> Delete Plant </button> </td>
+        </tr> 
+        <button (click)="newPlant()"> New Plant </button> 
+</table>
+
+   
+
+
+

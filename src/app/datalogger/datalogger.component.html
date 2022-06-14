@@ -1,0 +1,19 @@
+<p>Datalogger 1</p>
+
+<table>
+<tr>
+    <th>PlantNo</th>
+    <th>Temperature</th>
+    <th>Humidity</th>
+    <th>Soil Moisture</th>
+    <th>Date</th>
+      <th> </th>
+</tr >
+<tr *ngFor="let datalogger of dataloggerData; index as i">
+    <td> {{datalogger.PlantNo}} </td>
+    <td> {{datalogger.Temperature}}° </td>
+    <td> {{datalogger.Humidity}}° </td>
+    <td> {{datalogger.SoilMoisture}} </td>
+    <td> {{datalogger.Date}} </td>
+</tr>
+</table>
