@@ -12,24 +12,26 @@ export class PlantListComponent implements OnInit {
   public plant:Plant;
   public plants:any = [];
 
+  
   constructor(private remoteService:RemoteService) { 
     this.plants = remoteService.getPlants();
     this.plant = new Plant("0","plantname",0,"Notset");
 
   }
-
+  //onrun
   ngOnInit(): void {
 
     this.loadPlants();
   }
 
+  //load all plants into plants array
   loadPlants() {
     
     return this.remoteService.getPlants().subscribe((data: {}) => {
       this.plants = data;
     });
   }
-
+  //new button function
   newPlant() {
     this.remoteService.createPlant(this.plant).
     subscribe(data => {
@@ -38,7 +40,7 @@ export class PlantListComponent implements OnInit {
 
      this.loadPlants();
   }
-
+  //update button function
   updatePlant(i:number) {
     this.remoteService.updatePlant(this.plants[i]).
     subscribe(data => {
@@ -46,8 +48,8 @@ export class PlantListComponent implements OnInit {
 
      this.loadPlants();
   }
-
-  deletePlant(i) {
+  //delete button function
+  deletePlant(i:number) {
     this.remoteService.deletePlant(this.plants[i]).
     subscribe(data => {
       this.plants[i] = data});

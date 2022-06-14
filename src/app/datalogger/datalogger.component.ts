@@ -17,11 +17,12 @@ export class DataloggerComponent implements OnInit {
     this.datalogger = new Datalogger("0",1,0,"Dry",new Date());
    }
 
+  //gets all measured data on run
   ngOnInit(): void {
     this.loadDatalogger();
   }
 
-
+  //button to get measured data from remoteservice
   loadDatalogger() {
     return this.remoteService.getDataloggerData().subscribe((data: {}) => {
       this.dataloggerData = data;
